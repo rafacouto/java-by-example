@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mnuMainOpcion1">Opción 1</string>
+    <string name="mnuMainOpcion2">Opción 2</string>
+    <string name="mnuMainOpcion3">Opción 3</string>
+
+</resources>

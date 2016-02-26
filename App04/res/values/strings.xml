@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">App04</string>
+    <string name="mnuMainOpcion1">Option 1</string>
+    <string name="mnuMainOpcion2">Option 2</string>
+    <string name="mnuMainOpcion3">Option 3</string>
+</resources>
