@@ -17,6 +17,8 @@ public class ItemActivity extends Activity {
     Button btnLess;
     Button btnMore;
     CatalogAdapter spinnerAdapter;
+    Button btnAdd;
+    Button btnReview;
 
     private final Catalog catalog;
     private CatalogItem catalogItem;
@@ -97,6 +99,33 @@ public class ItemActivity extends Activity {
                 quantity++;
 
                 txtQuantity.setText(Integer.toString(quantity));
+            }
+        });
+
+        //////////
+
+        btnAdd = (Button) findViewById(R.id.btnAdd);
+
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                // ToDo
+            }
+        });
+
+        //////////
+
+        btnReview = (Button) findViewById(R.id.btnReviewList);
+
+        btnReview.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+
+                // ToDo
             }
         });
 

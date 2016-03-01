@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Your favourite shop</string>
+    <string name="mnuMainWeb">Web home</string>
+    <string name="mnuMainMap">Location on map</string>
 </resources>

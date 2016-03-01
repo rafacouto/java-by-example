@@ -2,8 +2,11 @@ package ovh.matrix.App04_Shop.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import ovh.matrix.App04_Shop.model.CatalogItem;
@@ -16,6 +19,7 @@ public class OrderActivity extends Activity {
 
 
     Button btnConfirm;
+    Button btnCall;
 
     /**
      * Called when the activity is first created.
@@ -51,6 +55,18 @@ public class OrderActivity extends Activity {
             }
         });
 
+
+        btnCall = (Button) findViewById(R.id.btnSupport);
+
+        btnCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "+34 900122312"));
+                if (intent.resolveActivity(getPackageManager()) != null) startActivity(intent);
+            }
+        });
+
     }
 
 
@@ -71,8 +87,33 @@ public class OrderActivity extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        // ToDo: Go web
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main, menu);
+        return true;
+    }
 
-        return super.onCreateOptionsMenu(menu);
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        Intent intent;
+
+        switch (item.getItemId()) {
+
+            case R.id.mnuMainWeb:
+                intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("http://yourfavouriteshop.com"));
+                if (intent.resolveActivity(getPackageManager()) != null) startActivity(intent);
+                break;
+
+            case R.id.mnuMainMap:
+                intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("geo:47.6,-122.3"));
+                if (intent.resolveActivity(getPackageManager()) != null) startActivity(intent);
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
