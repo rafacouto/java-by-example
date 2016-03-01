@@ -1,6 +1,8 @@
 package ovh.matrix.App04_Shop.activity;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
@@ -41,6 +43,14 @@ public class ItemActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+
+        Uri data = getIntent().getData();
+        if (data != null && data.getPath().startsWith("/p/")) {
+
+            String productId = data.getPathSegments().get(1);
+            Toast.makeText(getApplicationContext(), "ProductId=" + productId, Toast.LENGTH_LONG).show();
+        }
+
         setContentView(R.layout.item);
 
         //////////
@@ -112,6 +122,8 @@ public class ItemActivity extends Activity {
             public void onClick(View view) {
 
                 // ToDo
+                Intent myIntent = new Intent(getBaseContext(), OrderActivity.class);
+                startActivity(myIntent);
             }
         });
 
@@ -124,11 +136,19 @@ public class ItemActivity extends Activity {
             @Override
             public void onClick(View view) {
 
-
                 // ToDo
+                Intent myIntent = new Intent(getBaseContext(), OrderActivity.class);
+                startActivity(myIntent);
             }
         });
 
         /////////
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+
+
+        super.onNewIntent(intent);
     }
 }
